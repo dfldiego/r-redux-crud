@@ -1,0 +1,4 @@
+React Router DOM
+App.js
+-Lo que esta afuera del <Switch></Switch> se utiliza en todas las paginas.
+-Lo que esta dentro del <Switch></Switch> dentro del Route es lo que va a cargar en cada pagina.
