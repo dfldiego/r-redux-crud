@@ -5,11 +5,11 @@ import {
 } from '../types';
 
 // crear nuevos productos
-export function crearNuevoProductoAction() {
+export function crearNuevoProductoAction(producto) {
     return () => {
         // aqui es donde se inserta en la BBDD y se manda a ejecutar el reducer para modificar el state
         // esta funcion la vamos a usar en el componente(vista)
-        console.log('desde action');
+        console.log(producto);
     }
 }
 

@@ -2,3 +2,13 @@ React Router DOM
 App.js
 -Lo que esta afuera del <Switch></Switch> se utiliza en todas las paginas.
 -Lo que esta dentro del <Switch></Switch> dentro del Route es lo que va a cargar en cada pagina.
+
+REDUX
+los types describen las acciones de nuestra app.
+en nuestro actions(productoActions) vamos a tener una funcion(crearNuevoProductoAction)
+ que se tiene que utilizar en la vista(en el componente) de esa forma 
+ los datos de los componentes pueden pasar a las acciones y usamos en la vista
+ (en los componentes) dispatch para ejecutar esas acciones y en el action 
+ (productoActions) en la funcion (crearNuevoProductoAction) es donde ponemos el codigo
+ para insertar en la BBDD o mandar a llamar el reducer para modificar el state.
+ 

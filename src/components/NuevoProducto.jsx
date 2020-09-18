@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // actions de Redux
@@ -8,22 +8,32 @@ import {
 
 const NuevoProducto = () => {
 
+    // state del componente
+    const [nombre, setNombre] = useState('');
+    const [precio, setPrecio] = useState(0);
+
     // utilizar use dispatch y te crea una funcion
     const dispatch = useDispatch();
 
-    // manda llamar el action de productoActions
-    const agregarProducto = () => dispatch(crearNuevoProductoAction());
+    // manda llamar el action de productoActions. Aqui pasamos objeto desde la vista al actions.
+    const agregarProducto = producto => dispatch(crearNuevoProductoAction(producto));
 
     // cuando usuario haga submit
     const submitNuevoProducto = e => {
         e.preventDefault();
 
         // validar formulario
+        if (nombre.trim() === '' || precio <= 0) {
+            return;
+        }
 
         // si no hay errores
 
         // crear un nuevo producto
-        agregarProducto();
+        agregarProducto({
+            nombre,
+            precio
+        });
 
     }
 
@@ -45,6 +55,8 @@ const NuevoProducto = () => {
                                     className="form-control"
                                     placeholder="Nombre Producto"
                                     name="nombre"
+                                    value={nombre}
+                                    onChange={e => setNombre(e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
@@ -54,6 +66,8 @@ const NuevoProducto = () => {
                                     className="form-control"
                                     placeholder="Precio Producto"
                                     name="precio"
+                                    value={precio}
+                                    onChange={e => setPrecio(Number(e.target.value))}
                                 />
                             </div>
 
