@@ -15,3 +15,5 @@ redux tiene la libreria redux: npm i redux
 -redux-thunk: forma de utilizar funciones asincronas en redux: npm i redux-thunk
 
 - axios: npm i axios
+
+-sweetAlert: npm install sweetalert2

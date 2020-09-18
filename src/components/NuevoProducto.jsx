@@ -6,7 +6,8 @@ import {
     crearNuevoProductoAction,
 } from '../actions/productoActions';
 
-const NuevoProducto = () => {
+// cuando instalamos react-router-DOM y nuestros componentes estan en el routing tenemos acceso a HISTORY
+const NuevoProducto = ({ history }) => {
 
     // state del componente
     const [nombre, setNombre] = useState('');
@@ -39,6 +40,8 @@ const NuevoProducto = () => {
             precio
         });
 
+        // redireccionar al componente principal
+        history.push('/');
     }
 
     return (
