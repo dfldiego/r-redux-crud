@@ -3,10 +3,11 @@ import {
     AGREGAR_PRODUCTO_EXITO,
     AGREGAR_PRODUCTO_ERROR,
 } from '../types';
+import clienteAxios from '../config/axios';
 
 // crear nuevos productos
 export function crearNuevoProductoAction(producto) {
-    return (dispatch) => {
+    return async (dispatch) => {
         // aqui es donde se inserta en la BBDD y se manda a ejecutar el reducer para modificar el state
         // esta funcion la vamos a usar en el componente(vista)
         /* console.log(producto); */
@@ -14,10 +15,14 @@ export function crearNuevoProductoAction(producto) {
 
         // hacemos consulta a la BBDD
         try {
-            // si todo sale bien
+            // insertar en la API
+            await clienteAxios.post('/productos', producto)
+            // si todo sale bien, actualizar el state
             dispatch(agregarProductoExito(producto));
         } catch (error) {
-            // si hay un error
+            // debuggear el error
+            console.log(error);
+            // si hay un error cambiar el state
             dispatch(agregarProductoError(true));
         }
     }

@@ -13,3 +13,5 @@ redux tiene la libreria redux: npm i redux
 -react-redux: tiene funciones para conectar create-react-app con redux: npm i react-redux
 
 -redux-thunk: forma de utilizar funciones asincronas en redux: npm i redux-thunk
+
+- axios: npm i axios
