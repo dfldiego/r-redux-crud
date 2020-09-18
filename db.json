@@ -29,6 +29,21 @@
       "nombre": "Camotes 1kg",
       "precio": 300,
       "id": 6
+    },
+    {
+      "nombre": "qwe",
+      "precio": 123,
+      "id": 7
+    },
+    {
+      "nombre": "qwe",
+      "precio": null,
+      "id": 8
+    },
+    {
+      "nombre": "qwe",
+      "precio": null,
+      "id": 9
     }
   ]
 }

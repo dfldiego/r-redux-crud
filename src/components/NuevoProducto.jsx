@@ -15,6 +15,10 @@ const NuevoProducto = () => {
     // utilizar use dispatch y te crea una funcion
     const dispatch = useDispatch();
 
+    // acceder al state del store
+    const cargando = useSelector(state => state.productos.loading);
+    const error = useSelector(state => state.productos.error);
+
     // manda llamar el action de productoActions. Aqui pasamos objeto desde la vista al actions.
     const agregarProducto = producto => dispatch(crearNuevoProductoAction(producto));
 
@@ -77,6 +81,8 @@ const NuevoProducto = () => {
                             >Agregar
                             </button>
                         </form>
+                        {cargando ? <p>Cargando...</p> : null}
+                        {error ? <p className="alert alert-danger p2 mt-4 text-center">Hubo un error</p> : null}
                     </div>
                 </div>
             </div>
