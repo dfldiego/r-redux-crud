@@ -4,7 +4,14 @@ import {
     AGREGAR_PRODUCTO_ERROR,
 } from '../types';
 
-
+// crear nuevos productos
+export function crearNuevoProductoAction() {
+    return () => {
+        // aqui es donde se inserta en la BBDD y se manda a ejecutar el reducer para modificar el state
+        // esta funcion la vamos a usar en el componente(vista)
+        console.log('desde action');
+    }
+}
 
 
 /**

@@ -1,6 +1,32 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+// actions de Redux
+import {
+    crearNuevoProductoAction,
+} from '../actions/productoActions';
 
 const NuevoProducto = () => {
+
+    // utilizar use dispatch y te crea una funcion
+    const dispatch = useDispatch();
+
+    // manda llamar el action de productoActions
+    const agregarProducto = () => dispatch(crearNuevoProductoAction());
+
+    // cuando usuario haga submit
+    const submitNuevoProducto = e => {
+        e.preventDefault();
+
+        // validar formulario
+
+        // si no hay errores
+
+        // crear un nuevo producto
+        agregarProducto();
+
+    }
+
     return (
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -9,7 +35,9 @@ const NuevoProducto = () => {
                         <h2 className="text-center mb-4 font-weigth-bold">
                             Agregar Nuevo Producto
                         </h2>
-                        <form>
+                        <form
+                            onSubmit={submitNuevoProducto}
+                        >
                             <div className="form-group">
                                 <label>Nombre Producto</label>
                                 <input
@@ -43,3 +71,7 @@ const NuevoProducto = () => {
 }
 
 export default NuevoProducto
+
+
+//useDispatch: sirve para mandar a ejecutar las acciones que tengamos en nuestros actions
+//useSelector: una forma para acceder al state
