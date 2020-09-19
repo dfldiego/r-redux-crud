@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editarProductoApiStateAction } from '../actions/productoActions';
+import { useHistory } from 'react-router-dom';
 
 const EditarProducto = () => {
+
+    // redireccionar a la pagina principal una vez que editamos el producto
+    const history = useHistory();
+
+    // llamar el action
+    const dispatch = useDispatch();
 
     // nuevo state de producto
     const [producto, setProducto] = useState({
         nombre: '',
         precio: ''
     });
-
-
 
     // producto a editar
     const productoeditar = useSelector(state => state.productos.productoeditar);
@@ -27,12 +32,14 @@ const EditarProducto = () => {
             [e.target.name]: e.target.value
         })
     }
-    const { nombre, precio, id } = producto;
+    const { nombre, precio } = producto;
 
     const submitEditarProducto = e => {
         e.preventDefault();
 
-        editarProductoApiStateAction();
+        dispatch(editarProductoApiStateAction(producto));
+        // redireaccionar a componente ppal
+        history.push('/');
     }
 
 

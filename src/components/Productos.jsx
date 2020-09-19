@@ -14,6 +14,8 @@ const Productos = () => {
         const cargarProductos = () => dispatch(obtenerProductosAction());
         //llamar la funcion
         cargarProductos();
+
+        // eslint-disable-next-line
     }, []);
 
     //obtener el state
