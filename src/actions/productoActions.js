@@ -98,12 +98,18 @@ const descargarProductosError = () => ({
 export function borrarProductoAction(id) {
     return async (dispatch) => {
         dispatch(obtenerProductoEliminar(id));
-        /* console.log(id); */
         try {
             await clienteAxios.delete(`/productos/${id}`);
             dispatch(eliminarProductoExisto());
+            // si se elimina, mostrar alerta
+            Swal.fire(
+                'Eliminado!',
+                'EL producto se eliminó correctamente.',
+                'success'
+            )
         } catch (error) {
-
+            console.log(error);
+            dispatch(eliminarProductoError());
         }
     }
 }
