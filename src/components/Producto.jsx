@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 // Redux
 import { useDispatch } from 'react-redux';
-import { borrarProductoAction } from '../actions/productoActions';
+import {
+    borrarProductoAction,
+    editarProductoAction,
+} from '../actions/productoActions';
 
 const Producto = ({ producto }) => {
 
@@ -17,7 +20,6 @@ const Producto = ({ producto }) => {
 
     // Confirma si desea eliminarlo
     const confirmarEliminarProducto = id => {
-
         // pregustar al usuario
         Swal.fire({
             title: '¿Estás seguro?',
@@ -40,6 +42,9 @@ const Producto = ({ producto }) => {
 
     // funcion que redirige de forma programada. 
     const redireccionarEdicion = producto => {
+        console.log(producto);
+        // pasarlo al action
+        dispatch(editarProductoAction(producto));
         //  poner producto en activo y despues vamos a redireccionar id
         history.push(`/productos/editar/${producto.id}`);
 

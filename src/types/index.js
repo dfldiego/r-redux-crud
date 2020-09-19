@@ -10,6 +10,10 @@ export const OBTENER_PRODUCTO_ELIMINAR = 'OBTENER_PRODUCTO_ELIMINAR';
 export const PRODUCTO_ELIMINADO_EXITO = 'PRODUCTO_ELIMINADO_EXITO';
 export const PRODUCTO_ELIMINADO_ERROR = 'PRODUCTO_ELIMINADO_ERROR';
 
+export const OBTENER_PRODUCTO_EDITAR = 'OBTENER_PRODUCTO_EDITAR';
+export const PRODUCTO_EDITADO_EXITO = 'PRODUCTO_EDITADO_EXITO';
+export const PRODUCTO_EDITADO_ERROR = 'PRODUCTO_EDITADO_ERROR';
+
 /**
  * se usan para describir que pasa en nuestra aplicacion
  * se usan en el action para ir ejecutando ciertas funciones y en el reducer
