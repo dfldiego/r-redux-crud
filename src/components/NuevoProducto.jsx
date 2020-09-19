@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     crearNuevoProductoAction,
 } from '../actions/productoActions';
+import {
+    mostrarAlertaAction,
+} from '../actions/alertaActions';
 
 // cuando instalamos react-router-DOM y nuestros componentes estan en el routing tenemos acceso a HISTORY
 const NuevoProducto = ({ history }) => {
@@ -29,6 +32,12 @@ const NuevoProducto = ({ history }) => {
 
         // validar formulario
         if (nombre.trim() === '' || precio <= 0) {
+
+            const alerta = {
+                msg: 'Ambos campos son obligatorios',
+                classes: 'alert alert-danger text-center text-uppercase p3'
+            }
+            dispatch(mostrarAlertaAction(alerta));
             return;
         }
 
