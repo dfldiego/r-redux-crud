@@ -15,6 +15,9 @@ export const COMENZAR_EDICION_PRODUCTO = 'COMENZAR_EDICION_PRODUCTO';
 export const PRODUCTO_EDITADO_EXITO = 'PRODUCTO_EDITADO_EXITO';
 export const PRODUCTO_EDITADO_ERROR = 'PRODUCTO_EDITADO_ERROR';
 
+export const MOSTRAR_ALERTA = 'MOSTRAR_ALERTA';
+export const OCULTAR_ALERTA = 'OCULTAR_ALERTA';
+
 /**
  * se usan para describir que pasa en nuestra aplicacion
  * se usan en el action para ir ejecutando ciertas funciones y en el reducer
