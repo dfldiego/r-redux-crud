@@ -9,6 +9,7 @@ import {
     PRODUCTO_ELIMINADO_EXITO,
     PRODUCTO_ELIMINADO_ERROR,
     OBTENER_PRODUCTO_EDITAR,
+    COMENZAR_EDICION_PRODUCTO,
     PRODUCTO_EDITADO_EXITO,
     PRODUCTO_EDITADO_ERROR,
 } from '../types';
@@ -140,6 +141,25 @@ export function editarProductoAction(producto) {
 
 const editarProducto = producto => ({
     type: OBTENER_PRODUCTO_EDITAR,
+    payload: producto
+})
+
+// edita un registro en la api y state
+export function editarProductoApiStateAction(producto) {
+    return async (dispatch) => {
+        dispatch(editarProductoApiState(producto));
+
+        try {
+            const resultado = clienteAxios.put(`/productos/${producto.id}`, producto);
+            console.log(resultado);
+        } catch (error) {
+
+        }
+    }
+}
+
+const editarProductoApiState = producto => ({
+    type: COMENZAR_EDICION_PRODUCTO,
     payload: producto
 })
 
