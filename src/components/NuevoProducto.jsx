@@ -7,6 +7,7 @@ import {
 } from '../actions/productoActions';
 import {
     mostrarAlertaAction,
+    ocultarAlertaAction,
 } from '../actions/alertaActions';
 
 // cuando instalamos react-router-DOM y nuestros componentes estan en el routing tenemos acceso a HISTORY
@@ -43,6 +44,7 @@ const NuevoProducto = ({ history }) => {
         }
 
         // si no hay errores
+        dispatch(ocultarAlertaAction());
 
         // crear un nuevo producto
         agregarProducto({
